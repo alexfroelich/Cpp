@@ -1,5 +1,6 @@
 /*
-  A program to convert a decimal number to binary
+  Alexander A. Froelich
+  A program that converts a decimal number to binary
 */
 
 #include <iostream>
