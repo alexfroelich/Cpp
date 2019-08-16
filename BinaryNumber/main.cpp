@@ -9,13 +9,13 @@ using namespace std;
 
 //Declaration of the functions
 void print_instructions();
-void binary(int number, stack<int> *s);
+void decimal_to_binary(int number, stack<int> *binaryNumber);
 void print_binary(stack <int> *s);
 
 
 int main(int argc, char const *argv[]) {
   //Create the variable to store the input
-  int number = 0;
+  int number = 1;
   //Create a stack to store the binary form
   stack <int> binaryNumber;
   while (number != 0) {
@@ -45,7 +45,7 @@ int main(int argc, char const *argv[]) {
 
 
     //Convert the number and store the binary form in the stack
-    binary(number , &binaryNumber);
+    decimal_to_binary(number , &binaryNumber);
     //show the result
     cout << "The number "<< number << " in binary is: ";
     print_binary(&binaryNumber);
@@ -61,22 +61,22 @@ void print_instructions(){
     cout << "Please enter a number bigger than 0 to convert, or 0 to exit" << '\n';
 }
 
-void binary(int number, stack<int> *s){
+void decimal_to_binary(int number, stack<int> *binaryNumber){
     if(number / 2 == 0){
-      s->push(number%2);
+      binaryNumber->push(number%2);
     }
     else{
-      s->push(number%2);
-      binary(number/2, s);
+      binaryNumber->push(number%2);
+      decimal_to_binary(number/2, binaryNumber);
     }
 }
 
-void print_binary(stack <int> *s)
+void print_binary(stack <int> *binaryNumber)
 {
-    while (!s->empty())
+    while (!binaryNumber->empty())
     {
-        cout << s->top();
-        s->pop();
+        cout << binaryNumber->top();
+        binaryNumber->pop();
     }
     cout << '\n';
 }
